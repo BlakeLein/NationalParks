@@ -12,7 +12,7 @@
 
 Published July 2022
 
-[Email Me](blake.lein@gmail.com) | [GitHub](https://github.com/BlakeLein?tab=repositories) | [LinkedIn](https://www.linkedin.com/in/blake-lein-bb6187238)
+[Email Me](blake.lein@gmail.com) | [GitHub](https://github.com/BlakeLein/NationalParks) | [LinkedIn](https://www.linkedin.com/in/blake-lein-bb6187238)
 
 [You can view an article I wrote about the making of this project here](https://medium.com/@blake.lein/discovering-america-discovering-the-dom-e04347039c37)
 
@@ -31,7 +31,7 @@ Published July 2022
 - "fav.js"
 - "randomScript.js"
 
-\*\*Simply Download the [Discover America Repo](https://github.com/BlakeLein/dc_work/tree/main/projects/nationalParks), insert your keys, and launch!
+\*\*Simply Download the [Discover America Repo](https://github.com/BlakeLein/NationalParks), insert your keys, and launch!
 
 ## How "Discover America" Works
 
