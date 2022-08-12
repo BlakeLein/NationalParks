@@ -426,12 +426,15 @@ const selectByState = async (state) => {
   stateTitle.classList = "title-zone";
   titleZone.append(stateTitle);
 
-  const getParksKey = await fetch("http://localhost:3000/get_parks_key", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const getParksKey = await fetch(
+    "https://discover-america.herokuapp.com/get_parks_key",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   const key = await getParksKey.json();
   const data = {
     method: "GET", // *GET, POST, PUT, DELETE, etc.
