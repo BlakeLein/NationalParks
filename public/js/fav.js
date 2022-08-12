@@ -203,7 +203,7 @@ const getAdmission = (parkObject) => {
 // Weather Functions
 const getWeather = async (parkObject) => {
   const getWeatherData = await fetch(
-    "https://regal-banoffee-f85afd.netlify.app/get_weather_key",
+    "https://discover-america.herokuapp.com/get_weather_key",
     {
       method: "POST",
       headers: {
