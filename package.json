@@ -4,7 +4,8 @@
   "description": "\"Discover America\" is a website that allows users to view at a glance and keep track of their favorite US National Parks. \"Discover America\" utilizes a full front-end code library and demonstrates an understanding of DOM Manipulation and API calling.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,9 @@
     "pg": "^8.7.3",
     "sequelize": "^6.21.3",
     "sequelize-cli": "^6.4.1"
+  },
+  "engines": {
+    "node": "16.15.1",
+    "npm": "8.11.0"
   }
 }

@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const es6Renderer = require("express-es6-template-engine");
 const { Keys } = require("./sequelize/models");
 
