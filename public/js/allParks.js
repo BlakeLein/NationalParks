@@ -1,8 +1,3 @@
-// API KEYS
-
-const weatherAPI = "";
-const npsAPI = "";
-
 // HTML Grabs
 const mainContainer = document.getElementById("main-container");
 const button = document.getElementById("button");
@@ -165,11 +160,20 @@ const getAdmission = (parkObject) => {
   }
 };
 
+// Weather fetch
 // Weather Functions
 const getWeather = async (parkObject) => {
+  const getWeatherData = await fetch("http://localhost:3000/get_weather_key", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const key = await getWeatherData.json();
+
   let lat = parkObject.latitude;
   let lon = parkObject.longitude;
-  const weatherURL = `https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=${lat}&lon=${lon}&appid=${weatherAPI}`;
+  const weatherURL = `https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=${lat}&lon=${lon}&appid=${key.key}`;
   const weatherData = await fetch(weatherURL);
   const json = await weatherData.json();
   getWeatherIcon(json);
@@ -230,22 +234,6 @@ function closeNav() {
   document.getElementById("mySidebar").style.width = "0";
   document.getElementById("menu-button").style.marginLeft = "0";
 }
-
-// Data object to pass into fetch function
-const data = {
-  method: "GET", // *GET, POST, PUT, DELETE, etc.
-  cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-  credentials: "same-origin", // include, *same-origin, omit
-  headers: {
-    "Content-Type": "application/json",
-    "x-api-key": npsAPI,
-    Accept: "application/json",
-    // 'Content-Type': 'application/x-www-form-urlencoded',
-  },
-  redirect: "follow", // manual, *follow, error
-  referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-};
-// List and Objects of states to work with
 
 // Closes the modal after it's opened
 closeModalButton.addEventListener("click", () => {
@@ -421,6 +409,7 @@ const addToFavorites = (parkObject) => {
   localStorage.setItem(`${parkObject.fullName}`, parkObjectSerialized);
 };
 
+// Park fetch
 // Takes the selected state and puts the park for each state on the screen
 const selectByState = async (state) => {
   // Clear data on page
@@ -433,6 +422,27 @@ const selectByState = async (state) => {
   stateTitle.innerText = `National Parks in ${state}`;
   stateTitle.classList = "title-zone";
   titleZone.append(stateTitle);
+
+  const getParksKey = await fetch("http://localhost:3000/get_parks_key", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const key = await getParksKey.json();
+  const data = {
+    method: "GET", // *GET, POST, PUT, DELETE, etc.
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": key.key,
+      Accept: "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+  };
 
   // Pull Parks DataBase
   let url = "https://developer.nps.gov/api/v1/parks?limit=467";
@@ -450,8 +460,7 @@ const selectByState = async (state) => {
   }
 };
 
-// Script for Auto-fill search
-
+// Script for Auto-fill searc
 const input = document.getElementById("input");
 
 input.addEventListener("keyup", async (e) => {
@@ -963,8 +972,30 @@ const removeElements = () => {
   });
 };
 
+// Parks Fetch
 const searchButton = document.getElementById("type-search");
 searchButton.addEventListener("click", async () => {
+  const getParksKey = await fetch("http://localhost:3000/get_parks_key", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const key = await getParksKey.json();
+  const data = {
+    method: "GET", // *GET, POST, PUT, DELETE, etc.
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": key.key,
+      Accept: "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+  };
+
   titleZone.innerHTML = null;
   displayZone.innerHTML = null;
   select.value = "";

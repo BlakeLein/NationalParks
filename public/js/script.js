@@ -17,8 +17,7 @@ function closeNav() {
 
 const randomImage = () => {
   let x = Math.floor(4 * Math.random());
-
-  body.style.backgroundImage = `url(../images/bg${x}.jpg)`;
+  body.style.backgroundImage = `url(../public/images/bg${x}.jpg)`;
   body.style.backgroundRepeat = "no-repeat";
   body.style.backgroundSize = "cover";
 };

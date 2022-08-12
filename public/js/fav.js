@@ -199,11 +199,20 @@ const getAdmission = (parkObject) => {
   }
 };
 
+// Weather fetch
 // Weather Functions
 const getWeather = async (parkObject) => {
+  const getWeatherData = await fetch("http://localhost:3000/get_weather_key", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const key = await getWeatherData.json();
+
   let lat = parkObject.latitude;
   let lon = parkObject.longitude;
-  const weatherURL = `https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=${lat}&lon=${lon}&appid=${weatherAPI}`;
+  const weatherURL = `https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=${lat}&lon=${lon}&appid=${key.key}`;
   const weatherData = await fetch(weatherURL);
   const json = await weatherData.json();
   getWeatherIcon(json);

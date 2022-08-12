@@ -20,21 +20,6 @@ function closeNav() {
   document.getElementById("menu-button").style.marginLeft = "0";
 }
 
-// Fetch Data
-const data = {
-  method: "GET", // *GET, POST, PUT, DELETE, etc.
-  cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-  credentials: "same-origin", // include, *same-origin, omit
-  headers: {
-    "Content-Type": "application/json",
-    "x-api-key": npsAPI,
-    Accept: "application/json",
-    // 'Content-Type': 'application/x-www-form-urlencoded',
-  },
-  redirect: "follow", // manual, *follow, error
-  referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-};
-
 // Modal Grabs
 const overlay = document.getElementById("overlay");
 const closeModalButton = document.getElementById("close-modal");
@@ -192,9 +177,17 @@ const getAdmission = (parkObject) => {
 
 // Weather Functions
 const getWeather = async (parkObject) => {
+  const getWeatherData = await fetch("http://localhost:3000/get_weather_key", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const key = await getWeatherData.json();
+
   let lat = parkObject.latitude;
   let lon = parkObject.longitude;
-  const weatherURL = `https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=${lat}&lon=${lon}&appid=${weatherAPI}`;
+  const weatherURL = `https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=${lat}&lon=${lon}&appid=${key.key}`;
   const weatherData = await fetch(weatherURL);
   const json = await weatherData.json();
 
@@ -264,6 +257,27 @@ overlay.addEventListener("click", () => {
 });
 
 const getRandomPark = async () => {
+  const getParksKey = await fetch("http://localhost:3000/get_parks_key", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const key = await getParksKey.json();
+  // Fetch Data
+  const data = {
+    method: "GET", // *GET, POST, PUT, DELETE, etc.
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": key.key,
+      Accept: "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+  };
   let url = "https://developer.nps.gov/api/v1/parks?limit=467";
   const response = await fetch(url, data);
   const json = await response.json();

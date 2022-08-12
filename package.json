@@ -1,0 +1,27 @@
+{
+  "name": "nationalparks",
+  "version": "1.0.0",
+  "description": "\"Discover America\" is a website that allows users to view at a glance and keep track of their favorite US National Parks. \"Discover America\" utilizes a full front-end code library and demonstrates an understanding of DOM Manipulation and API calling.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlakeLein/NationalParks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlakeLein/NationalParks/issues"
+  },
+  "homepage": "https://github.com/BlakeLein/NationalParks#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-es6-template-engine": "^2.2.3",
+    "pg": "^8.7.3",
+    "sequelize": "^6.21.3",
+    "sequelize-cli": "^6.4.1"
+  }
+}
