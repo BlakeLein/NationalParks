@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 // API KEYS
 
 const weatherAPI = "";

@@ -12,17 +12,17 @@ body {
 }
 
 .fav-bg {
-  background: url("images/american2.jpg") no-repeat center center fixed;
+  background: url("../images/american2.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
 .all-bg {
-  background: url("images/bg0.jpg") no-repeat center center fixed;
+  background: url("../images/bg0.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
 .rand-bg {
-  background: url("images/american.jpg") no-repeat center center fixed;
+  background: url("../images/american.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 

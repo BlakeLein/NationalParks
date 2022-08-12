@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NPF - Favorite Parks</title>
-    <link defer rel="stylesheet" href="../allStyles.css" />
-    <script defer src="fav.js"></script>
+    <title>NPF - Random Adventure</title>
+    <link defer rel="stylesheet" href="../css/allStyles.css" />
+    <script defer src="../js/randomScript.js"></script>
   </head>
-  <body class= "fav-bg">
+  <body class="rand-bg">
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a href="../index.html">Home</a>
-      <a href="../allParks/allParks.html">Find a Park</a>
+      <a href="index.html">Home</a>
+      <a href="allParks.html">Find a Park</a>
       <a href="fav.html">My Favorites</a>
-      <a href="../randomPark/random.html">Random Adventure</a>
+      <a href="random.html">Random Adventure</a>
     </div>
     <div id="menu-button">
       <button class="openbtn" onclick="openNav()">☰</button>
@@ -22,12 +22,14 @@
     <div class="main">
       <div id="header">
         <div class="title">
-          <h1>Anticipated Adventures</h1>
+          <h1>Roll the Dice!</h1>
         </div>
       </div>
+      <div class="main-container" id="main">
+        <button class ="generate" id="generate">Click here to generate your next random adventure!</button>
+      </div>
       <div id="main-container" class="main-container">
-        <div id="display-zone"></div>
-        <div class="modal-fav" id="modal">
+        <div class="modal-rand" id="modal">
           <div class="modal-header">
             <div class="header-title">
               <h2 id="header-title">Park Title</h2>

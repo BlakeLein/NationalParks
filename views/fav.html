@@ -4,18 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NPF - Find a Park</title>
-    <link defer rel="stylesheet" href="../allStyles.css" />
-    <script defer type="text/javascript" src="config.js"></script>
-    <script defer src="allParks.js"></script>
+    <title>NPF - Favorite Parks</title>
+    <link defer rel="stylesheet" href="../css/allStyles.css" />
+    <script defer src="../js/fav.js"></script>
   </head>
-  <body class="all-bg">
+  <body class= "fav-bg">
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a href="../index.html">Home</a>
+      <a href="index.html">Home</a>
       <a href="allParks.html">Find a Park</a>
-      <a href="../favParks/fav.html">My Favorites</a>
-      <a href="../randomPark/random.html">Random Adventure</a>
+      <a href="fav.html">My Favorites</a>
+      <a href="random.html">Random Adventure</a>
     </div>
     <div id="menu-button">
       <button class="openbtn" onclick="openNav()">☰</button>
@@ -23,32 +22,12 @@
     <div class="main">
       <div id="header">
         <div class="title">
-          <h1>Let's Find an Escape</h1>
-          <h2>
-            Search a national park by name or select a state to get started
-          </h2>
+          <h1>Anticipated Adventures</h1>
         </div>
       </div>
       <div id="main-container" class="main-container">
-        <div id="search-container" class="search-container">
-          <br />
-
-          <div class="autocomplete">
-            <input
-              type="text"
-              id="input"
-              placeholder="Search by Park Name and Click Search..."
-            />
-            <ul class="list"></ul>
-          </div>
-          <button id="type-search">Search</button>
-          <select id="select">
-            <option value="" disabled selected hidden>Select a State...</option>
-          </select>
-        </div>
-        <div id="title-zone"></div>
         <div id="display-zone"></div>
-        <div class="modal-all" id="modal">
+        <div class="modal-fav" id="modal">
           <div class="modal-header">
             <div class="header-title">
               <h2 id="header-title">Park Title</h2>
@@ -62,19 +41,13 @@
               <h3>Contact</h3>
               <hr />
               <div class="contacts">
-                <a
-                  href=""
-                  target="”_blank”"
-                  class="small-title"
-                  id="contact-url"
+                <a href="" target="”_blank”"class="small-title" id="contact-url"
                   >Visit Park Website</a
                 >
                 <p class="small-title" id="address">Address</p>
                 <p class="small-title" id="email">Email</p>
                 <p class="small-title" id="phone">Phone Number</p>
-                <a href="" target="”_blank”" class="small-title" id="directions"
-                  >Directions</a
-                >
+                <a href="" target="”_blank”"class="small-title" id="directions">Directions</a>
               </div>
             </div>
             <div class="two" id="hours-box">
@@ -154,7 +127,6 @@
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
     <div class="" id="overlay"></div>
