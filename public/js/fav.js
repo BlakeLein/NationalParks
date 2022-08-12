@@ -202,12 +202,15 @@ const getAdmission = (parkObject) => {
 // Weather fetch
 // Weather Functions
 const getWeather = async (parkObject) => {
-  const getWeatherData = await fetch("http://localhost:3000/get_weather_key", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const getWeatherData = await fetch(
+    "https://regal-banoffee-f85afd.netlify.app/get_weather_key",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   const key = await getWeatherData.json();
 
   let lat = parkObject.latitude;
