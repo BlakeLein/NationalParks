@@ -33,6 +33,10 @@ Published July 2022
 
 \*\*Simply Download the [Discover America Repo](https://github.com/BlakeLein/NationalParks), insert your keys, and launch!
 
+#### UPDATE
+
+"Discover America" is now deployed online for you to try! Follow this [link](https://discover-america.herokuapp.com/)
+
 ## How "Discover America" Works
 
 ---
